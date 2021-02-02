@@ -1,0 +1,10 @@
+<div class="topnav">
+  <span class="title">Wookie Movies</span>
+  <div class="search-container">
+    <input type="text" placeholder="Search.." name="search" #movieName>
+    <button type="button" (click)="goToSearch(movieName.value)"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+<div>
+</div>
+<router-outlet></router-outlet>

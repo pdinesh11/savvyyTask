@@ -1,0 +1,22 @@
+<main class="container">
+    <section class="movies" id="movies">
+        <div *ngFor="let category of categories">
+            <h3 class="text-left pb-0 pt-1">{{category.label}}</h3>
+            <div class="row">
+                <div class="col-lg-4 col-2" *ngFor="let movie of category.movieList">
+                    <article class="card" 
+                        style="min-width: 220px; max-width: 320px; height: 100%; padding: .25em; margin: .5em 10px auto auto;">
+                        <header class="title-header">
+                            <h6>{{movie.title}}</h6>
+                        </header>
+                        <div class="card-block" (click) ="onUserClick(movie.title)">
+                            <div class="img-card">
+                                <img [src]="movie.backdrop" alt="Movie" class="w-100" />
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

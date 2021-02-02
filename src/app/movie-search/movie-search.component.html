@@ -1,0 +1,62 @@
+<!-- <div class="container"> -->
+<div class="container" *ngIf="!movie.imdb_rating">
+    No data found
+</div>
+<div class="container">
+    <div class="card-group" *ngIf="movie?.title">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="img-card">
+                    <img [src]="movie.backdrop" alt="Movie" class="w-100" />
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="row">
+                    <div class="col">
+                        {{movie.title}}({{movie.imdb_rating}})
+                    </div>
+                    <div class="col">
+                        <p class="review-rating" *ngIf="movie.imdb_rating">
+                            <!-- 1 star  -->
+                            <i [class]="(movie.imdb_rating == 0) ? 'far fa-star' : (movie.imdb_rating > 0 && movie.imdb_rating < 2) ? 'fas fa-star-half-alt' : 'fas fa-star'"></i>
+                        
+                            <!-- 2 star  -->
+                            <i [class]="(movie.imdb_rating > 2 && movie.imdb_rating < 4) ? 'fas fa-star-half-alt' : (movie.imdb_rating >= 4) ? 'fas fa-star' : 'far fa-star'"></i>
+                        
+                            <!-- 3 star  -->
+                            <i [class]="(movie.imdb_rating > 4 && movie.imdb_rating < 6) ? 'fas fa-star-half-alt' : (movie.imdb_rating >= 6) ? 'fas fa-star' : 'far fa-star'"></i>
+                        
+                            <!-- 4 star  -->
+                            <i [class]="(movie.imdb_rating > 6 && movie.imdb_rating < 8) ? 'fas fa-star-half-alt' : (movie.imdb_rating >= 8) ? 'fas fa-star' : 'far fa-star'"></i>
+                        
+                            <!-- 5 star  -->
+                            <i [class]="(movie.imdb_rating > 8 && movie.imdb_rating < 10) ? 'fas fa-star-half-alt' : (movie.imdb_rating >= 10) ? 'fas fa-star' : 'far fa-star'"></i> 
+                          </p>
+                    </div>
+                </div>
+                <div class="row vdivide">
+                    <div class="col-sm-2 text-right">{{movie.released_on|date:'yyyy'}}</div>
+                    <div class="col-sm-4 text-center">{{movie.length}}</div>
+                    <div class="">{{movie.director}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span style="font-weight: bold;text-align: left;"> Cast:</span>
+                        <span *ngFor="let cast of movie.cast">&nbsp;&nbsp;{{cast}},</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span style="font-weight: bold;">Movie Description: </span>
+                        <span>&nbsp; &nbsp;{{movie.overview}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a href="/movie-list">Back to movies</a>
+</div>

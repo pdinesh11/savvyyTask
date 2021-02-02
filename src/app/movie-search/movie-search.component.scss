@@ -1,0 +1,14 @@
+.row.vdivide [class*='col-']:not(:last-child):after {
+    background: #000000;
+    width: 1px;
+    content: "";
+    display:block;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    right: 0;
+    min-height: 10px;
+  }
+  .checked {
+    color: orange;
+  }
